@@ -6,7 +6,6 @@ import java.util.Scanner;
 
 import com.training.controller.input.NoteInput;
 import com.training.model.Field;
-import com.training.model.Note;
 import com.training.model.Notebook;
 import com.training.view.View;
 

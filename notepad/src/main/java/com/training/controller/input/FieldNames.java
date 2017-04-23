@@ -4,4 +4,5 @@ package com.training.controller.input;
 String firstNameField="First name";
 String lastNameField="Last name";
 String phoneNumberField="phone number";
+String nicknameField="nickname";
 }
