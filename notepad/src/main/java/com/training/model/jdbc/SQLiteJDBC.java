@@ -10,6 +10,7 @@ import java.sql.Statement;
 
 import com.training.model.Field;
 import com.training.model.Note;
+import com.training.model.exception.DataBaseExeption;
 import com.training.model.exception.NicknameOccupiedException;
 
 public class SQLiteJDBC {
@@ -63,7 +64,7 @@ public class SQLiteJDBC {
         return conn;
     }
 	
-	public void insert(Note note) throws NicknameOccupiedException {
+	public void insert(Note note) throws NicknameOccupiedException, DataBaseExeption {
         String sql = "INSERT INTO notebook(firstname,lastname,phonenumber,nickname) VALUES(?,?,?,?)";
  
         try (Connection conn = this.connect();
@@ -76,9 +77,9 @@ public class SQLiteJDBC {
         }
         catch (SQLException e) {
         	if(e.getMessage().contains("A UNIQUE constraint failed")){
-        		throw new NicknameOccupiedException(note);
+        		throw new NicknameOccupiedException(e,note);
         	}else{
-            System.out.println(e.getMessage());
+        		throw new DataBaseExeption(e,note);
         	}
         }
     }

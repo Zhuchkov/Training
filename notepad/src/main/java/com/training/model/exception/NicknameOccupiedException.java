@@ -1,16 +1,18 @@
 package com.training.model.exception;
 
+import java.sql.SQLException;
+
 import com.training.model.Note;
 
-public class NicknameOccupiedException extends Exception {
+public class NicknameOccupiedException extends SQLException {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 7474585205907930983L;
+	private static final long serialVersionUID = -4262886475358904958L;
 	
 	private Note invalidNote;
-	public NicknameOccupiedException(Note note){
-		super();
+	public NicknameOccupiedException(SQLException e, Note note){
+		super(e);
 		invalidNote=note;
 		
 	}
