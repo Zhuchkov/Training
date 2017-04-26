@@ -1,16 +1,12 @@
 package com.training.controller;
 
-import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
 
 import com.training.controller.input.Fields;
-import com.training.controller.input.NoteInput;
-import com.training.model.Field;
+import com.training.controller.input.NoteConstructor;
 import com.training.model.Note;
 import com.training.model.Notebook;
 import com.training.model.exception.NicknameOccupiedException;
-import com.training.model.jdbc.SQLiteJDBC;
 import com.training.view.View;
 
 public class Controller {
@@ -24,7 +20,7 @@ public class Controller {
 
 	public void process() {
 		view.print(View.DATA_REQUEST);
-		Note note = new NoteInput(view).createNote();
+		Note note = new NoteConstructor(view).createNote();
 		view.print(note.toString());
 		view.print(View.SAVE_REQUEST);
 		if (readNumber() == 0) {
@@ -37,10 +33,10 @@ public class Controller {
 
 	private void saveNote(Note note) {
 		try {
-			notebook.saveNote(note);
-		} catch (NicknameOccupiedException e) {
+			notebook.save(note);
+		} catch (NicknameOccupiedException ex) {
 			view.print(View.NICKNAME_OCCUPIED);
-			Note fixedNote = new NoteInput(view).changeField(e.getInvalidNote(), Fields.NICKNAME);
+			Note fixedNote = new NoteConstructor(view).changeField(ex.getInvalidNote(), Fields.NICKNAME);
 			saveNote(fixedNote);
 		}
 	}

@@ -1,8 +1,9 @@
 package com.training.controller.input;
 
-import java.util.regex.Pattern;
-import static com.training.controller.input.Regex.*;
 import static com.training.controller.input.FieldNames.*;
+import static com.training.controller.input.Regex.*;
+
+import java.util.regex.Pattern;
 
  public enum Fields {
 	FIRST_NAME(firstNameField,NAME_PATTERN,false),
