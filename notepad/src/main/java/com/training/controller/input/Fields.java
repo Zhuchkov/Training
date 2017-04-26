@@ -4,11 +4,11 @@ import java.util.regex.Pattern;
 import static com.training.controller.input.Regex.*;
 import static com.training.controller.input.FieldNames.*;
 
- enum Fields {
+ public enum Fields {
 	FIRST_NAME(firstNameField,NAME_PATTERN,false),
 	LAST_NAME(lastNameField,NAME_PATTERN,false),
 	PHONE_NUMBER(phoneNumberField,PHONE_PATTERN,false),
-	NICKNAME(nicknameField,NICKNAME_PATTERN,true);
+	NICKNAME(nicknameField,NICKNAME_PATTERN,false);
 	
 	private String name;
 	private Pattern regex;
