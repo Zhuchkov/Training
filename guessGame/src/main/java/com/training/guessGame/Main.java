@@ -1,5 +1,7 @@
 package com.training.guessGame;
 
+import com.training.guessGame.view.View;
+
 public class Main {
 
 	public static void main(String[] args) {

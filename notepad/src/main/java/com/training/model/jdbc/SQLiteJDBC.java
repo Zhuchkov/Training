@@ -73,6 +73,8 @@ public class SQLiteJDBC {
         	for(Field field:note.getFields()){
         		pstmt.setString(i++,field.getFieldValue());
         	}
+        	//TODO how to store Time and Date in databases???
+        	//pstmt.setDate(i, note.getCreationDate());
             pstmt.executeUpdate();
         }
         catch (SQLException e) {

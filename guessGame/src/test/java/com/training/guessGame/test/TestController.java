@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import com.training.guessGame.Controller;
 import com.training.guessGame.Model;
-import com.training.guessGame.View;
+import com.training.guessGame.view.View;
 
 public class TestController {
 

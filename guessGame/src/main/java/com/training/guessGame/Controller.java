@@ -1,6 +1,10 @@
 package com.training.guessGame;
 
+import java.util.Locale;
 import java.util.Scanner;
+
+import com.training.guessGame.view.ResourceManager;
+import com.training.guessGame.view.View;
 
 public class Controller {
 	private Model model;
@@ -13,6 +17,13 @@ public class Controller {
 
 	public void startGame() {
 		boolean guessed;
+		view.print(View.REQUEST_INPUT_LANGUAGE);
+		int option = readNumber(new Scanner(System.in));
+		switch(option){
+		case 0: ResourceManager.INSTANCE.changeResource(Locale.ENGLISH);
+		break;
+		case 1: ResourceManager.INSTANCE.changeResource(new Locale("ua_UA"));
+		}
 		do {
 			Scanner sc = new Scanner(System.in);
 			inputRequest();
@@ -52,7 +63,7 @@ public class Controller {
 
 	private int readNumber(Scanner sc) {
 		while (!sc.hasNextInt()) {
-			view.print(View.WRONG_UNMERIC_INPUT);
+			view.print(View.ERROR_INPUT_NUMERIC);
 			inputRequest();
 			sc.next();
 		}
