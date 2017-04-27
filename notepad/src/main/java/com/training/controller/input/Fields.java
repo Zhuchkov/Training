@@ -6,10 +6,10 @@ import static com.training.controller.input.Regex.*;
 import java.util.regex.Pattern;
 
  public enum Fields {
-	FIRST_NAME(firstNameField,NAME_PATTERN,false),
-	LAST_NAME(lastNameField,NAME_PATTERN,false),
-	PHONE_NUMBER(phoneNumberField,PHONE_PATTERN,false),
-	NICKNAME(nicknameField,NICKNAME_PATTERN,false);
+	FIRST_NAME(FIRST_NAME_FIELD,NAME_PATTERN,false),
+	LAST_NAME(LAST_NAME_FIELD,NAME_PATTERN,false),
+	PHONE_NUMBER(PHONE_NUMBER_FIELD,PHONE_PATTERN,false),
+	NICKNAME(NICKNAME_FIELD,NICKNAME_PATTERN,false);
 	
 	private String name;
 	private Pattern regex;

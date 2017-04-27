@@ -1,5 +1,6 @@
 package com.training.controller;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 import com.training.controller.input.Fields;
@@ -8,6 +9,7 @@ import com.training.model.Note;
 import com.training.model.Notebook;
 import com.training.model.exception.DataBaseExeption;
 import com.training.model.exception.NicknameOccupiedException;
+import com.training.view.ResourceManager;
 import com.training.view.View;
 
 public class Controller {
@@ -20,6 +22,15 @@ public class Controller {
 	}
 
 	public void process() {
+		view.print(View.REQUEST_INPUT_LANGUAGE);
+		int option = readNumber();
+		switch (option) {
+		case 0:
+			ResourceManager.INSTANCE.changeResource(Locale.ENGLISH);
+			break;
+		case 1:
+			ResourceManager.INSTANCE.changeResource(new Locale("ua_UA"));
+		}
 		view.print(View.DATA_REQUEST);
 		Note note = new NoteConstructor(view).createNote();
 		saveMenu(note);
@@ -27,7 +38,7 @@ public class Controller {
 	}
 
 	private void saveMenu(Note note) {
-		view.print(note.toString());
+		view.printNote(note);
 		view.print(View.SAVE_REQUEST);
 		int option = readNumber();
 		switch (option){

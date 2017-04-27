@@ -25,10 +25,10 @@ public class NoteConstructor {
 	}
 
 	private Field createField(Fields currentField) {
-		view.print(View.INPUT_REQUEST_STRING + currentField.fieldName());
+		view.print(View.INPUT_REQUEST_STRING , currentField.fieldName());
 		String fieldValue = sc.nextLine();
 		while (!currentField.validate(fieldValue)) {
-			view.print(View.INPUT_WRONG_STRING + View.INPUT_REQUEST_STRING + currentField.fieldName());
+			view.print(View.INPUT_WRONG_STRING , View.INPUT_REQUEST_STRING , currentField.fieldName());
 			fieldValue = sc.nextLine();
 		}
 		return new Field(currentField.fieldName(), fieldValue);

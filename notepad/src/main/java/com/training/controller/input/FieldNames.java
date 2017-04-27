@@ -1,8 +1,8 @@
 package com.training.controller.input;
 
 interface FieldNames {
-	String firstNameField = "First name";
-	String lastNameField = "Last name";
-	String phoneNumberField = "phone number";
-	String nicknameField = "nickname";
+	String FIRST_NAME_FIELD = "field.firstname";
+	String LAST_NAME_FIELD = "field.lastname";
+	String PHONE_NUMBER_FIELD = "field.phonenumber";
+	String NICKNAME_FIELD = "field.nickname";
 }

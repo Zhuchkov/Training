@@ -16,23 +16,21 @@ import com.training.model.exception.NicknameOccupiedException;
 public class SQLiteJDBC {
 
 	private static final String JDBC_SQLITE_TEST_DB = "jdbc:sqlite:test.db";
-	public static void createNewDatabase() {
+	public static void createNewDatabase() throws SQLException {
 
 		String url = JDBC_SQLITE_TEST_DB;
 
 		try (Connection conn = DriverManager.getConnection(url)) {
 			if (conn != null) {
 				DatabaseMetaData meta = conn.getMetaData();
-				System.out.println("The driver name is " + meta.getDriverName());
-				System.out.println("A new database has been created.");
 			}
 
 		} catch (SQLException e) {
-			System.out.println(e.getMessage());
+			throw e;
 		}
 	}
 
-	public static void createNewTable() {
+	public static void createNewTable() throws SQLException {
 		// SQLite connection string
 		String url = JDBC_SQLITE_TEST_DB;
 
@@ -49,7 +47,7 @@ public class SQLiteJDBC {
 			// create a new table
 			stmt.execute(sql);
 		} catch (SQLException e) {
-			System.out.println(e.getMessage());
+			throw e;
 		}
 	}
 	private Connection connect() {

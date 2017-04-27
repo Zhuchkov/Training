@@ -2,9 +2,11 @@ package com.training.controller.input;
 
 import java.util.regex.Pattern;
 
+import com.training.view.ResourceManager;
+
  interface Regex {
-	Pattern NICKNAME_PATTERN = Pattern.compile("^[a-zA-Z][a-zA-Z0-9._-]{3,}$");
-	Pattern NAME_PATTERN = Pattern.compile("^[a-zA-Z]{3,}$");
-	Pattern PHONE_PATTERN = Pattern.compile("^[0-9]{10}$");
+	Pattern NICKNAME_PATTERN = Pattern.compile(ResourceManager.INSTANCE.getString("regex.nickname"));
+	Pattern NAME_PATTERN = Pattern.compile(ResourceManager.INSTANCE.getString("regex.name"));
+	Pattern PHONE_PATTERN = Pattern.compile(ResourceManager.INSTANCE.getString("regex.phonenumber"));
 
 }
