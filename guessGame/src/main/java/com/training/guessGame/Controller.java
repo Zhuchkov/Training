@@ -19,10 +19,12 @@ public class Controller {
 		boolean guessed;
 		view.print(View.REQUEST_INPUT_LANGUAGE);
 		int option = readNumber(new Scanner(System.in));
-		switch(option){
-		case 0: ResourceManager.INSTANCE.changeResource(Locale.ENGLISH);
-		break;
-		case 1: ResourceManager.INSTANCE.changeResource(new Locale("ua_UA"));
+		switch (option) {
+		case 0:
+			ResourceManager.INSTANCE.changeResource(Locale.ENGLISH);
+			break;
+		case 1:
+			ResourceManager.INSTANCE.changeResource(new Locale("ua_UA"));
 		}
 		do {
 			Scanner sc = new Scanner(System.in);
@@ -49,16 +51,16 @@ public class Controller {
 	}
 
 	public boolean outOfBoundariesValidation(int input) {
-		 if(input < model.getMin()){
-			 view.print(View.OUT_OF_MIN_BORDER);
-			 inputRequest();
-			 return true;
-		 }else if(input>model.getMax()){
-			 view.print(View.OUT_OF_MAX_BORDER);
-			 inputRequest();
-			 return true;
-		 }
-		 return false;
+		if (input < model.getMin()) {
+			view.print(View.OUT_OF_MIN_BORDER);
+			inputRequest();
+			return true;
+		} else if (input > model.getMax()) {
+			view.print(View.OUT_OF_MAX_BORDER);
+			inputRequest();
+			return true;
+		}
+		return false;
 	}
 
 	private int readNumber(Scanner sc) {
