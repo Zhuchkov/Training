@@ -8,17 +8,24 @@ public class GeneralInstitute extends AbstractInstitute {
 
 	public GeneralInstitute(DocumentQueue queue) {
 		super(queue);
-		
+
 	}
 
 	@Override
 	public void accept() {
-		Random random = new Random();
-		for(int i=0;i<random.nextInt(5);i++){
-			extractFromQueue();
+		while (!queue.isEmpty() || queue.getSize() > 0) {
+			Random random = new Random();
+			for (int i = 0; i < random.nextInt(5); i++) {
+				extractFromQueue();
+			}
+
+			try {
+				Thread.sleep(10);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
-
 	}
-
 
 }

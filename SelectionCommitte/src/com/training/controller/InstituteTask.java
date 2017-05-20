@@ -12,8 +12,10 @@ public class InstituteTask implements Runnable {
 
 	@Override
 	public void run() {
-		inst.accept();
 		
+		inst.accept();
+		System.out.println(inst.getDocuments());
 	}
+	
 
 }

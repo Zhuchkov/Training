@@ -8,7 +8,7 @@ public class DocumentQueue {
 	private final int minQuantity;
 	private final int maxQuantity;
 
-	private boolean probucerEmpty = false;
+	private boolean producerEmpty = false;
 
 	LinkedList<Document> documents = new LinkedList<>();;
 
@@ -48,14 +48,15 @@ public class DocumentQueue {
 
 	public synchronized void setEmpty() {
 		notifyAll();
-		probucerEmpty = true;
+		producerEmpty = true;
 
 	}
 
 	public boolean isEmpty() {
-		return probucerEmpty;
+		return producerEmpty;
 	}
 	public int getSize(){
 		return documents.size();
 	}
+
 }

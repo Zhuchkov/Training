@@ -14,13 +14,22 @@ public class BiologyInstitute extends AbstractInstitute {
 
 	@Override
 	public void accept() {
-		try {
-			while (queue.element().getType() == DocumentType.BIOLOG) {
-				extractFromQueue();
-			}
+		while (!queue.isEmpty() || queue.getSize() > 0) {
+		
+			try {
+				while (queue.element().getType() == DocumentType.BIOLOG) {
+					extractFromQueue();
+				}
 
-		} catch (NoSuchElementException e) {
-			return;
+			} catch (NoSuchElementException e) {
+				return;
+			}
+			try {
+				Thread.sleep(10);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
 

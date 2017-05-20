@@ -11,5 +11,9 @@ public class Document {
 	public DocumentType getType(){
 		return type;
 	}
+	@Override
+	public String toString() {
+		return "Document [type=" + type + "]";
+	}
 	
 }

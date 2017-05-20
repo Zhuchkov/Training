@@ -21,7 +21,7 @@ public abstract class AbstractInstitute {
 	protected void extractFromQueue() {
 		try {
 			Document doc = queue.remove();
-			System.out.println(getClass()+";"+doc);
+			System.out.println("[removed] "+getClass()+doc);
 			documents.add(doc);
 		} catch (NoSuchElementException e) {
 			return;
@@ -31,5 +31,4 @@ public abstract class AbstractInstitute {
 	public List<Document> getDocuments() {
 		return documents;
 	}
-	
 }
